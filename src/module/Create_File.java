@@ -3,38 +3,23 @@ package module;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
-import View.View_console;
 
-public class FileOperation implements Operation{
 
-    private String fileName="";
+public class Create_File extends Connect_File{
 
-    public FileOperation(){
-        System.out.println("Инициализация работы с фалом записок.......Готово!!!");;
-    }
-    public FileOperation(String fileName){
-        this.fileName = fileName;
-    }
 
-    public String Get_filename(){
-        return this.fileName;
-    }
-
-    public void Create_File() {
-        try (FileWriter writer = new FileWriter(String.join(".",this.fileName,"txt"), true)) {
-            writer.write("Пока записей нет...");
-            writer.flush();
+    public void Create_New_File(String filename) {
+        Set_File(filename);
+        try(FileWriter file = Write_connection_file(filename, false)){
+            file.flush();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-    }
-    @Override
-    public List<String> readAllLines() {
-        return null;
-    }
-
-    @Override
-    public void saveAllLines(List<String> lines) {
 
     }
+
+    public Create_File(){
+
+    }
+
 }

@@ -1,2 +1,9 @@
-package View;public interface User_interaction {
+package View;
+
+import java.util.Scanner;
+
+public interface User_interaction {
+
+
+ Integer Interaction(Scanner input);
 }
